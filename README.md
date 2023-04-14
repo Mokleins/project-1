@@ -15,3 +15,5 @@ The main idea of the project is that:
 - Learning how to use Event Listeners 
 
 ## Project Summary
+
+The project will render data from `https://labs.bible.org/`
