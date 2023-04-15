@@ -15,3 +15,8 @@ The main idea of the project is that:
 - Learning how to use Event Listeners 
 
 ## Project Summary
+
+The project will get data from `https://labs.bible.org/`. Then it will render each verse separately. 
+The website will allow user insert their phone number so it can send a verse to their as a message every day.
+It is important to consider that the website will have a very simple design, and it is mostly focus for people
+who are interested in christian verses. 
