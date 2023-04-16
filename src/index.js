@@ -16,8 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //The function renders the data
   const render = (versesArray) => {
-    console.log(versesArray);
-
     versesArray.forEach((verse) => {
       const versesContainer = document.querySelector(".verses-container");
       const verseCard = document.createElement("div");
