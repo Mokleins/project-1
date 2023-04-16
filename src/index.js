@@ -1,10 +1,9 @@
 //Adding the event Listener to DOMCOntentloaded Event
 document.addEventListener("DOMContentLoaded", () => {
-  
   function apiCalling() {
     //Creating an array to store verses data
     const versesArray = [];
-    
+
     //Calling the API, and Passing the URL
     fetch("https://labs.bible.org/api/?passage=random&type=json")
       .then((data) => data.json())
@@ -31,9 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       verseCard.append(nameBible, bibleP);
       versesContainer.innerHTML = "";
       versesContainer.append(verseCard);
-
     });
-     
     buttonGenerate();
   };
 
