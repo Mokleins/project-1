@@ -1,26 +1,24 @@
 //Adding the event Listener to DOMCOntentloaded Event
 document.addEventListener("DOMContentLoaded", () => {
-  //Creating an array to store verses data
-  const versesArray = [];
-
-  //Calling the API, and Passing the URL
-  const linkOfBible = "https://labs.bible.org/api/?passage=random&type=json";
-
-  for (let i = 0; i < 5; i++) {
-    fetch(linkOfBible)
+  
+  function apiCalling() {
+    //Creating an array to store verses data
+    const versesArray = [];
+    
+    //Calling the API, and Passing the URL
+    fetch("https://labs.bible.org/api/?passage=random&type=json")
       .then((data) => data.json())
       .then((bibleData) => {
         versesArray.push(bibleData);
-        if (i === 4) {
-          render(versesArray);
-        }
+        render(versesArray);
       })
       .catch((error) => console.log(error));
   }
 
   //The function renders the data
   const render = (versesArray) => {
-    const button = document.createElement("button");
+    console.log(versesArray);
+
     versesArray.forEach((verse) => {
       const versesContainer = document.querySelector(".verses-container");
       const verseCard = document.createElement("div");
@@ -29,10 +27,28 @@ document.addEventListener("DOMContentLoaded", () => {
       nameBible.textContent =
         verse[0].bookname + " " + verse[0].chapter + ":" + verse[0].verse;
       bibleP.innerHTML = verse[0].text;
+      verseCard.setAttribute("id", "box");
       verseCard.append(nameBible, bibleP);
-      versesContainer.append(verseCard,button);
+      versesContainer.innerHTML = "";
+      versesContainer.append(verseCard);
+
     });
+     
+    buttonGenerate();
   };
 
-  //Create an event listener that instead reloading the page the user can click to get a new verse.
+  /*The button will generate new verses. The fuction will create an event listener 
+    so it can generate the new verses*/
+  const buttonGenerate = () => {
+    const button = document.createElement("button");
+    const versesContainer = document.querySelector(".verses-container");
+    button.addEventListener("click", (event) => {
+      // versesArray = [];
+      event.preventDefault();
+      apiCalling();
+    });
+    button.textContent = "Generate new verses";
+    versesContainer.append(button);
+  };
+  apiCalling();
 });
