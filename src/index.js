@@ -44,8 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
     so it can generate the new verses*/
   const buttonGenerate = () => {
     const container = document.querySelector(".container");
+    const btnMessage = document.createElement("button");
     container.innerHTML = "";
     const button = document.createElement("button");
+    btnMessage.className = "messageBtn";
     button.className = "cool-button";
     const versesContainer = document.querySelector(".verses-container");
     button.addEventListener("click", (event) => {
@@ -53,7 +55,14 @@ document.addEventListener("DOMContentLoaded", () => {
       apiCalling();
     });
     button.textContent = "Generate new verses";
-    container.append(button);
+    
+    //This button will submit new verse to the user who inserts their phone number
+    btnMessage.addEventListener("click", (event) => {
+      event.preventDefault();
+      alert("hello");
+    })
+    btnMessage.textContent = "Message";
+    container.append(button, btnMessage);
   };
   apiCalling();
 });
