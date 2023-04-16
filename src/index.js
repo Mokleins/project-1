@@ -5,45 +5,69 @@ document.addEventListener("DOMContentLoaded", () => {
     const versesArray = [];
 
     //Calling the API, and Passing the URL
-    fetch("https://labs.bible.org/api/?passage=random&type=json")
-      .then((data) => data.json())
-      .then((bibleData) => {
-        versesArray.push(bibleData);
-        render(versesArray);
-      })
-      .catch((error) => console.log(error));
+    for (let i = 0; i < 6; i++) {
+      fetch("https://labs.bible.org/api/?passage=random&type=json")
+        .then((data) => data.json())
+        .then((bibleData) => {
+          versesArray.push(bibleData);
+          if (i === 5) {
+            render(versesArray);
+          }
+        })
+        .catch((error) => console.log(error));
+    }
   }
 
   //The function renders the data
   const render = (versesArray) => {
+    const versesContainer = document.querySelector(".verses-container");
+
+    versesContainer.innerHTML = "";
+    let i = 0;
     versesArray.forEach((verse) => {
-      const versesContainer = document.querySelector(".verses-container");
+      i++;
       const verseCard = document.createElement("div");
       const nameBible = document.createElement("h4");
       const bibleP = document.createElement("p");
       nameBible.textContent =
         verse[0].bookname + " " + verse[0].chapter + ":" + verse[0].verse;
       bibleP.innerHTML = verse[0].text;
-      verseCard.setAttribute("id", "box");
+      verseCard.setAttribute("id", `box ${i}`);
       verseCard.append(nameBible, bibleP);
-      versesContainer.innerHTML = "";
       versesContainer.append(verseCard);
     });
+
     buttonGenerate();
   };
 
   /*The button will generate new verses. The fuction will create an event listener 
     so it can generate the new verses*/
   const buttonGenerate = () => {
+    const container = document.querySelector(".container");
+    container.innerHTML = "";
     const button = document.createElement("button");
+    button.className = "cool-button";
     const versesContainer = document.querySelector(".verses-container");
     button.addEventListener("click", (event) => {
-      // versesArray = [];
       event.preventDefault();
       apiCalling();
     });
     button.textContent = "Generate new verses";
-    versesContainer.append(button);
+    container.append(button);
   };
   apiCalling();
 });
+
+// Download the helper library from https://www.twilio.com/docs/node/install
+// Set environment variables for your credentials
+// Read more at http://twil.io/secure
+const accountSid = "AC48a766eafdca044f29fa6d5a23db7706";
+const authToken = "c2d26d2a58fcb3e7433c676e23e77530";
+const client = require("twilio")(accountSid, authToken);
+client.messages
+  .create({
+    body: "Hello from Twilio",
+    from: "+18779407005",
+    to: "+13013837843",
+  })
+  .then((message) => console.log(message.sid));
