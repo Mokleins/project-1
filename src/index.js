@@ -38,16 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     buttonGenerate();
+    
   };
 
   /*The button will generate new verses. The fuction will create an event listener 
     so it can generate the new verses*/
   const buttonGenerate = () => {
     const container = document.querySelector(".container");
-    const btnMessage = document.createElement("button");
     container.innerHTML = "";
     const button = document.createElement("button");
-    btnMessage.className = "messageBtn";
     button.className = "cool-button";
     const versesContainer = document.querySelector(".verses-container");
     button.addEventListener("click", (event) => {
@@ -55,28 +54,12 @@ document.addEventListener("DOMContentLoaded", () => {
       apiCalling();
     });
     button.textContent = "Generate new verses";
-    
-    //This button will submit new verse to the user who inserts their phone number
-    btnMessage.addEventListener("click", (event) => {
-      event.preventDefault();
-      alert("hello");
-    })
-    btnMessage.textContent = "Message";
-    container.append(button, btnMessage);
+
+    container.append(button);
   };
+  
   apiCalling();
 });
 
-// Download the helper library from https://www.twilio.com/docs/node/install
-// Set environment variables for your credentials
-// Read more at http://twil.io/secure
-const accountSid = "AC48a766eafdca044f29fa6d5a23db7706";
-const authToken = "c2d26d2a58fcb3e7433c676e23e77530";
-const client = require("twilio")(accountSid, authToken);
-client.messages
-  .create({
-    body: "Hello from Twilio",
-    from: "+18779407005",
-    to: "+13013837843",
-  })
-  .then((message) => console.log(message.sid));
+
+
