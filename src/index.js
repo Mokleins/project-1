@@ -38,7 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     buttonGenerate();
-    
+    sendingMessage();
+    changeColor();
   };
 
   /*The button will generate new verses. The fuction will create an event listener 
@@ -57,7 +58,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     container.append(button);
   };
+
+  const sendingMessage = () => {
+    const container = document.querySelector(".container");
+    const btnMessage = document.createElement("button");
+    btnMessage.className = "messageBtn";
+
+    //This button will submit new verse to the user who inserts their phone number
+    btnMessage.addEventListener("click", (event) => {
+      event.preventDefault();
+      alert("works")
+    });
+
+    btnMessage.textContent = "Message";
+    container.append(btnMessage);
+  };
   
+  const changeColor = () => {
+    const button = document.querySelector('.cool-button');
+    button.addEventListener("mouseover", function() {
+      button.style.backgroundColor = "red"; 
+    })
+    button.addEventListener("mouseout", function() {
+      button.style.backgroundColor = "#4285f4";
+    });
+  }
   apiCalling();
 });
 
