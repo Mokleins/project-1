@@ -73,11 +73,11 @@ document.addEventListener("DOMContentLoaded", () => {
     btnMessage.textContent = "Message";
     container.append(btnMessage);
   };
-  
+
   const changeColor = () => {
     const button = document.querySelector('.cool-button');
     button.addEventListener("mouseover", function() {
-      button.style.backgroundColor = "red"; 
+      button.style.backgroundColor = "#8bbd16"; 
     })
     button.addEventListener("mouseout", function() {
       button.style.backgroundColor = "#4285f4";
