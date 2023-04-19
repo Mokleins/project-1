@@ -21,7 +21,7 @@ The website will allow user insert their phone number so it can send a verse to 
 It is important to consider that the website will have a very simple design, and it is mostly focus for people
 who are interested in christian verses.
 
-##The Final Product looks like this:
+## The Final Product looks like this:
 
 ![Random Verses App](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTQ2MjNkNjdmMjA0M2IyODMyNzg1NDg5YmQyOGU1OWI3YjE2NTAzZSZjdD1n/uWlKMtp1KGS1Np984K/giphy.gif)
 
