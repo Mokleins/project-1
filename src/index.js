@@ -78,10 +78,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const changeColor = () => {
     const button = document.querySelector('.cool-button');
     button.addEventListener("mouseover", function() {
-      button.style.backgroundColor = "#8bbd16"; 
+      button.style.backgroundColor = "#e79b4a"; 
     })
     button.addEventListener("mouseout", function() {
-      button.style.backgroundColor = "#4285f4";
+      button.style.backgroundColor = "#f44242";
     });
   }
   apiCalling();
