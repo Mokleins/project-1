@@ -1,54 +1,89 @@
-/* Default styling for verses container */
-.verses-container {
+/* Verses styles */
+.verses {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
-.verses-container div {
+.verse {
   margin: 1rem;
   padding: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-gray);
 }
 
-.verses-container h4 {
+.verse-title {
   font-size: 1.2rem;
   font-weight: bold;
 }
 
-.verses-container p {
+.verse-text {
   font-size: 1rem;
 }
 
 /* Media queries for smaller screens */
 @media screen and (max-width: 768px) {
-  .verses-container {
+  .verses {
     flex-direction: column;
   }
 
-  .verses-container div {
+  .verse {
     width: 90%;
   }
 
-  .verses-container h4 {
+  .verse-title {
     font-size: 1rem;
   }
 
-  .verses-container p {
+  .verse-text {
     font-size: 0.8rem;
   }
 }
 
-.container {
+/* Button styles */
+.button {
   position: fixed;
-  bottom: 1rem;
+  top: 1rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
 }
 
-.cool-button, .messageBtn {
+.button-generate {
   margin: 0 0.5rem;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 
+.button-generate:hover {
+  background-color: var(--color-green);
+}
+
+.button-message {
+  margin: 0 0.5rem;
+  background-color: var(--color-yellow);
+  color: var(--color-black);
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.button-message:hover {
+  background-color: var(--color-orange);
+}
+
+/* Variables */
+:root {
+  --color-black: #333;
+  --color-gray: #ccc;
+  --color-white: #fff;
+  --color-blue: #4285f4;
+  --color-green: #34a853;
+  --color-yellow: #fbbc05;
+  --color-orange: #ea4335;
+}

@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /*The button will generate new verses. The fuction will create an event listener 
     so it can generate the new verses*/
   const buttonGenerate = () => {
+    
     const container = document.querySelector(".container");
     container.innerHTML = "";
     const button = document.createElement("button");
